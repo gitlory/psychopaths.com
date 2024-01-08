@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css">
+
+      <title>Login</title>
+      <link rel="icon" type="image/x-icon" href="assets/img/web-icon.png">
+ 
+   </head>
+   <body>
+      <div class="login">
+         <img src="assets/img/random2.gif" alt="login image" class="login__img">
+         
+         <form action="" class="login__form">
+            <h1 class="login__title">Login</h1>
+
+            <div class="login__content">
+               <div class="login__box">
+            </div>
+                  <div class="login__box-input">
+                     <label for="login-email" class="login__label">Welcome in the psychopaths website!</label>
+                  </div>
+               
+            <br><div class="login__content">
+               <div class="login__box">
+                   <p class="login__register">
+                      <ul>
+                        <div class="flex items-center justify-center h-screen bg-discord-gray text-white" >
+                        <li><a id="logini" target="_blank" href="https://discord.com/api/oauth2/authorize?client_id=983170789656367144&redirect_uri=http%3A%2F%2Flocalhost%3A53134%2Fauth%2Fdiscord&response_type=token&scope=identify" class="bg-discord-black  text-xl px-5 py-3 rounded-md font-bold flex items-center space-x-4 hover:bg-gray-600 transition duration-75" style="color: white; text-decoration: none;">
+                        <span><strong href="https://discord.com/api/oauth2/authorize?client_id=1032305013046910987&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4000&scope=identify">Login with Discord</strong></span></a></li></div><br>
+<script>
+	window.onload = () => {
+		const fragment = new URLSearchParams(window.location.hash.slice(1));
+		const [accessToken, tokenType] = [fragment.get('access_token'), fragment.get('token_type')];
+
+		if (!accessToken) {
+			return (document.getElementById('login').style.display = 'block');
+		}
+
+		fetch('https://discord.com/api/users/@me', {
+			headers: {
+				authorization: `${tokenType} ${accessToken}`,
+			},
+		})
+			.then(result => result.json())
+			.then(response => {
+				const { username, discriminator } = response;
+				document.getElementById('info').innerText += ` ${username}#${discriminator}`;
+			})
+			.catch(console.error);
+	};
+</script>
+                      </ul>
+                  </div>
+               </div>
+            </div>
+         </form>
+                  </div>
+                </body>
+              </html>
